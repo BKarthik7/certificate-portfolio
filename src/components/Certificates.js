@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import supabase from './supabaseClient';
+import supabase from '../supabaseClient';
 
 const Certificates = ({ user }) => {
   const [certificates, setCertificates] = useState([]);

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import supabase from './supabaseClient';
-import AdminLogin from './AdminLogin';
-import Certificates from './Certificates';
-import AddCertificate from './AddCertificate';
+import AdminLogin from './components/AdminLogin';
+import Certificates from './components/Certificates';
+import AddCertificate from './components/AddCertificate';
 
 const App = () => {
   const [user, setUser] = useState(null);

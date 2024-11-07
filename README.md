@@ -54,7 +54,7 @@ The app will run on `http://localhost:3000`.
 ## Usage
 
 - **Login**: Authenticate with your Supabase credentials.
-- **View Certificates**: Display all uploaded certificates.
+- **View Certificates**: Display all uploaded certificates.(By Default)
 
 ***(if LoggedIn ie. Admin Privileges)***
 - **Add Certificate**: After login, add certificates with details like title, description, date, and associated skills.
