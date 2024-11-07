@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import supabase from './supabaseClient';
-import AdminLogin from './components/AdminLogin';
-import Certificates from './components/Certificates';
-import AddCertificate from './components/AddCertificate';
+// src/App.js
+
+import React, { useState, useEffect } from "react";
+import supabase from "./supabaseClient";
+import AdminLogin from "./components/AdminLogin";
+import Certificates from "./components/Certificates";
+import AddCertificate from "./components/AddCertificate";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -13,9 +15,12 @@ const App = () => {
   useEffect(() => {
     const fetchUser = async () => {
       setLoading(true);
-      const { data: { user }, error } = await supabase.auth.getUser();
+      const {
+        data: { user },
+        error,
+      } = await supabase.auth.getUser();
       if (error) {
-        console.error('Error fetching user:', error);
+        console.error("Error fetching user:", error);
       }
       setUser(user);
       setLoading(false);
@@ -25,21 +30,22 @@ const App = () => {
   }, []);
 
   const handleLogin = (user) => {
-    setUser(user);  // Set user state after successful login
-    setShowLogin(false); // Hide login form after login
+    setUser(user);
+    setShowLogin(false);
   };
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
-    setUser(null); // Reset user state after logout
-    setShowAddCertificate(false); // Hide Add Certificate section after logout
+    setUser(null);
+    setShowAddCertificate(false);
   };
 
-  if (loading) return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="spinner-border animate-spin border-4 border-t-4 border-indigo-600 rounded-full w-16 h-16"></div>
-    </div>
-  );
+  if (loading)
+    return (
+      <div className="flex justify-center items-center min-h-screen bg-gray-100">
+        <div className="spinner-border animate-spin border-4 border-t-4 border-indigo-600 rounded-full w-16 h-16"></div>
+      </div>
+    );
 
   return (
     <div>
@@ -51,7 +57,6 @@ const App = () => {
             <span className="text-xl font-semibold text-gradient">
               MyCertificatesPortfolio
             </span>
-
           </div>
 
           <div className="flex items-center space-x-4">
@@ -65,15 +70,15 @@ const App = () => {
                 </button>
                 <button
                   className="p-2 bg-green-400 rounded hover:bg-green-500"
-                  onClick={() => setShowAddCertificate(!showAddCertificate)} // Toggle between Add Certificate and Certificates
+                  onClick={() => setShowAddCertificate(!showAddCertificate)}
                 >
-                  {showAddCertificate ? 'View Certificates' : 'Add Certificate'}
+                  {showAddCertificate ? "View Certificates" : "Add Certificate"}
                 </button>
               </>
             ) : (
               <button
                 className="p-2 bg-blue-400 rounded hover:bg-blue-500"
-                onClick={() => setShowLogin(true)} // Show login form when clicked
+                onClick={() => setShowLogin(true)}
               >
                 Login
               </button>
@@ -82,14 +87,11 @@ const App = () => {
         </nav>
       )}
 
-      {/* Show login page if showLogin is true */}
       {showLogin ? (
         <AdminLogin onLogin={handleLogin} />
       ) : (
         <div className="p-4">
-          {/* Show Certificates if not adding */}
           {!showAddCertificate && <Certificates user={user} />}
-          {/* Show Add Certificate if toggled */}
           {showAddCertificate && <AddCertificate />}
         </div>
       )}

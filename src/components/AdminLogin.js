@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
-import supabase from '../supabaseClient';
+// src/components/AdminLogin.js
+
+import React, { useState } from "react";
+import supabase from "../supabaseClient";
 
 const AdminLogin = ({ onLogin }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleLogin = async () => {
     try {
-      const { data: { user }, error } = await supabase.auth.signInWithPassword({
+      const {
+        data: { user },
+        error,
+      } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
@@ -22,7 +27,9 @@ const AdminLogin = ({ onLogin }) => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Admin Login</h2>
+        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
+          Admin Login
+        </h2>
         <div className="space-y-4">
           <input
             type="email"
