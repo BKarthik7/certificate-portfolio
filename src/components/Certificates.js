@@ -46,7 +46,6 @@ const Certificates = ({ user }) => {
 
   return (
     <div className="space-y-6 pl-2">
-      <h2 className="text-2xl font-bold mb-4">My Certificates</h2>
       {certificates.length === 0 ? (
         <p>No certificates found.</p>
       ) : (

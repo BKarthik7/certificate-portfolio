@@ -1,9 +1,7 @@
-// src/components/AdminLogin.js
-
 import React, { useState } from "react";
 import supabase from "../supabaseClient";
 
-const AdminLogin = ({ onLogin }) => {
+const AdminLogin = ({ setShowLogin, onLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -26,7 +24,15 @@ const AdminLogin = ({ onLogin }) => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+      <div className="relative bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        {/* Close button */}
+        <button
+          onClick={() => setShowLogin(false)}
+          className="absolute top-2 right-2 text-gray-600 hover:text-gray-900"
+        >
+          <span className="text-2xl">&times;</span>
+        </button>
+
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
           Admin Login
         </h2>

@@ -88,7 +88,7 @@ const App = () => {
       )}
 
       {showLogin ? (
-        <AdminLogin onLogin={handleLogin} />
+        <AdminLogin setShowLogin={setShowLogin} onLogin={handleLogin} />
       ) : (
         <div className="p-4">
           {!showAddCertificate && <Certificates user={user} />}
