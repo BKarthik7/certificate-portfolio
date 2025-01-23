@@ -1,5 +1,3 @@
-//src/components/Certificates.js
-
 import React, { useEffect, useState } from "react";
 import supabase from "../supabaseClient";
 
@@ -52,16 +50,16 @@ const Certificates = ({ user }) => {
       {certificates.length === 0 ? (
         <p>No certificates found.</p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {certificates.map((cert) => (
+        <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6">
+          {certificates.map((cert, index) => (
             <div
               key={cert.id}
-              className="bg-white p-4 rounded-lg shadow-md relative"
+              className="bg-white p-4 rounded-lg shadow-md relative mb-6"
             >
               <img
                 src={cert.image_url}
                 alt={cert.title}
-                className="w-full h-auto object-contain mb-4"
+                className="w-full max-h-64 object-contain mb-4"
               />
               <h3 className="text-xl font-semibold text-gray-800 truncate">
                 {cert.title}
@@ -87,7 +85,6 @@ const Certificates = ({ user }) => {
                     </span>
                   ))}
               </div>
-              {/* Show trash bin icon button only if user is logged in */}
               {user && (
                 <button
                   onClick={() => handleDelete(cert.id)}
