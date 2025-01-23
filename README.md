@@ -13,7 +13,7 @@ MyCertificatesPortfolio is a React-based web application designed for users to m
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/en/) installed
-- [Supabase account](https://supabase.io/) and project set up
+- [Supabase account](https://supabase.com/) and project set up
 - Create a `.env` file and add your Supabase API credentials.
 
 ### Installation
