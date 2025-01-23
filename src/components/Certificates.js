@@ -50,11 +50,11 @@ const Certificates = ({ user }) => {
       {certificates.length === 0 ? (
         <p>No certificates found.</p>
       ) : (
-        <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6">
-          {certificates.map((cert, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {certificates.map((cert) => (
             <div
               key={cert.id}
-              className="bg-white p-4 rounded-lg shadow-md relative mb-6"
+              className="bg-white p-4 rounded-lg shadow-md relative min-h-[16rem]"
             >
               <img
                 src={cert.image_url}
